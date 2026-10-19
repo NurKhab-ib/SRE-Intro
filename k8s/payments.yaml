@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: payments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: payments
@@ -16,8 +16,8 @@ spec:
         - name: ghcr-secret
       containers:
         - name: payments
-          image: ghcr.io/nurkhab-ib/quickticket-payments:7ac1b02d9d684fd7826eb33318213d74db05ec24
-          imagePullPolicy: Always
+          image: quickticket-payments:lab12
+          imagePullPolicy: Never
           ports:
             - containerPort: 8082
           env:
